@@ -12,10 +12,9 @@ public class WorkOrder {
         currentID++;
     }
 
-    public WorkOrder(String description, String senderName, Status status) {
+    public WorkOrder(String description, String senderName) {
         this.description = description;
         this.senderName = senderName;
-        this.status = status;
         id = currentID;
         currentID++;
     }
