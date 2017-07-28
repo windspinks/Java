@@ -4,7 +4,7 @@ public class WorkOrder {
     private int id;
     private String description;
     private String senderName;
-    private String status;
+    private Status status;
     private static int currentID = 1;
 
     public WorkOrder() {
@@ -12,7 +12,7 @@ public class WorkOrder {
         currentID++;
     }
 
-    public WorkOrder(String description, String senderName, String status) {
+    public WorkOrder(String description, String senderName, Status status) {
         this.description = description;
         this.senderName = senderName;
         this.status = status;
@@ -40,11 +40,11 @@ public class WorkOrder {
         this.senderName = senderName;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }
