@@ -12,17 +12,17 @@ import java.util.Set;
 public class Processor {
     Map<Status, Set<WorkOrder>> workOrderMap = new HashMap<>();
 
+    public Map<Status, Set<WorkOrder>> getWorkOrderMap(){
+        return workOrderMap;
+    }
 
     public void processWorkOrders() {
-        workOrderMap.put(Status.INITIAL, new HashSet<>());
-        workOrderMap.put(Status.ASSIGNED, new HashSet<>());
-        workOrderMap.put(Status.IN_PROGRESS, new HashSet<>());
-        workOrderMap.put(Status.DONE, new HashSet<>());
 
         try {
             moveIt();
             readIt();
             Thread.sleep(5000L);
+            processWorkOrders();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -59,6 +59,13 @@ public class Processor {
 
     public static void main(String args[]) {
         Processor processor = new Processor();
+
+        //Initializing the map
+        processor.workOrderMap.put(Status.INITIAL, new HashSet<>());
+        processor.workOrderMap.put(Status.ASSIGNED, new HashSet<>());
+        processor.workOrderMap.put(Status.IN_PROGRESS, new HashSet<>());
+        processor.workOrderMap.put(Status.DONE, new HashSet<>());
+
         processor.processWorkOrders();
     }
 }
