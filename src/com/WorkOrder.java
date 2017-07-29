@@ -5,11 +5,11 @@ public class WorkOrder {
     private String description;
     private String senderName;
     private Status status;
-    private static int currentID = 1;
+    private static int currentID = 5000;
 
     public WorkOrder() {
         id = currentID;
-        currentID++;
+        currentID+=10;
     }
 
     public WorkOrder(String description, String senderName) {
