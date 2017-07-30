@@ -21,7 +21,7 @@ public class Processor {
         try {
             moveIt();
             readIt();
-            Thread.sleep(5000L);
+            Thread.sleep(15000L);
             processWorkOrders();
         } catch (InterruptedException e) {
             e.printStackTrace();
