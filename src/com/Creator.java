@@ -44,7 +44,7 @@ public class Creator {
     }
 
     public static void main(String args[]) {
-        com.Creator creator = new com.Creator();
+        Creator creator = new Creator();
         creator.createWorkOrders();
     }
 }
