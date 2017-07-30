@@ -65,7 +65,7 @@ public class Processor {
 
                     }else if(order.getStatus().equals( Status.ASSIGNED )){
                         order.setStatus( Status.IN_PROGRESS);
-                        workOrderSetAssigned.add(order);
+                        workOrderSetInProgress.add(order);
                         workOrderMap.put(Status.IN_PROGRESS, workOrderSetInProgress);
 
                     }else if(order.getStatus().equals( Status.IN_PROGRESS)){
