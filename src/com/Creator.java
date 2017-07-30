@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Creator {
 
-    public void createWorkOrders() throws IOException {
+    public void createWorkOrders() {
         // read input, create work orders and write as json files
 
         WorkOrder newWorkOrder = new WorkOrder();
@@ -28,19 +28,24 @@ public class Creator {
 
         int workOrderIDNo = newWorkOrder.getId();
 
-        mapper.writeValue(new File(workOrderIDNo + ".json"),newWorkOrder);
+        try {
+            mapper.writeValue(new File(workOrderIDNo + ".json"),newWorkOrder);
+            System.out.print("Your new order has been created.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        String jsonString = mapper.writeValueAsString(newWorkOrder);
-        System.out.print("Your new order has been created.");
+        try {
+            Thread.sleep(5000L);
+            createWorkOrders();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String args[]) {
-        try {
-            com.Creator creator = new com.Creator();
-            creator.createWorkOrders();
-        }catch(IOException e) {
-            e.printStackTrace();
-        }
+        com.Creator creator = new com.Creator();
+        creator.createWorkOrders();
     }
 }
 
